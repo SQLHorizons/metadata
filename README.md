@@ -19,3 +19,24 @@ repository: https://github.com/SQLHorizons/metadata.git
   └── README.md
 
 ```
+
+## Querying
+
+```powershell
+
+##  get machine metadata.
+$uri = "http://ms-oc27:8081/repository/latest/metadata"
+$tags = @(
+    "aws_ami=$((Invoke-WebRequest $uri/ami-id).Content)"
+    "aws_az=$((Invoke-WebRequest $uri/placement/availability-zone).Content)"
+    "iam_instance_profile=$(((Invoke-WebRequest $uri/iam/info).Content | ConvertFrom-Json).InstanceProfileArn)"
+    "aws_id=$((Invoke-WebRequest $uri/instance-id).Content)"
+    "aws_type=$((Invoke-WebRequest $uri/instance-type).Content)"
+    "aws_ip=$((Invoke-WebRequest $uri/local-ipv4).Content)"
+    "role=$($ServerParams.role)"
+    "dns=$($ServerParams.dns)"
+)
+
+Return $tags
+
+```
