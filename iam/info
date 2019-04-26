@@ -1,0 +1,6 @@
+{
+  "Code" : "Success",
+  "LastUpdated" : "2019-04-26T09:50:01Z",
+  "InstanceProfileArn" : "arn:aws:iam::621585893834:instance-profile/fin-freeagent-studio/freeagent-app",
+  "InstanceProfileId" : "AKIAIN43N2QT3VTPRSDA"
+}
